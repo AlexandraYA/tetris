@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Play tetris</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles/reset.css">
+        <link rel="stylesheet" href="styles/styles.css">
+        
+        <script src="main.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="playground">
+                <div class="col">
+                    <div id="field" class="field"></div>
+                </div>
+                <div class="col">
+                    <div id="preview" class="preview"></div>
+                    <div class="score-block">SCORE <span id="score">0</span></div>
+                    <div class="controls">
+                        <div id="btnLeft" class="btn btn-left">Left</div>
+                        <div id="btnRight" class="btn btn-right">Right</div>
+                        <div id="btnDown" class="btn btn-down">Down</div>
+                        <div id="btnRotate" class="btn btn-rotate">Rotate</div>
+                    </div>
+                </div>
+            </div>
+            <div id="gameOver" class="game-over">GAME OVER</div>
+            <div id="haven" class="fon-haven"> </div>
+            <div id="hell" class="fon-hell"> </div>
+        </div>
+    </body>
+</html>
