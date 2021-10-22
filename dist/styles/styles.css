@@ -91,7 +91,7 @@ html, body, .container, .playground {
     position: absolute;
     width: 20px;
     height: 20px;
-    background: black url('img/block-fon.png') center center no-repeat;
+    background: black;
     border: 1px solid #a11d00;
 }
 
