@@ -1,0 +1,9 @@
+{
+  "start": "btnStart",
+  "pause": "btnStart",
+  "left": "btnStart",
+  "right": "btnStart",
+  "rotate": "btnStart",
+  "speed": "btnStart",
+  "score": "score"
+}
