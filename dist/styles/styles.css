@@ -23,16 +23,14 @@ html, body, .container, .playground {
 }
 .field {
     position: relative;
-    width: 240px;
-    height: 400px;
-    border-top: 1px solid black;
-    border-right: 4px solid black;
-    border-bottom: 4px solid black;
-    border-left: 4px solid black;
     -moz-box-sizing: content-box;
     -webkit-box-sizing: content-box;
     box-sizing: content-box;
     background: #ffffff;
+    border-top: 1px solid black;
+    border-right: 4px solid black;
+    border-bottom: 4px solid black;
+    border-left: 4px solid black;
 }
 
 .preview {
