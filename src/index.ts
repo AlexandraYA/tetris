@@ -1,60 +1,32 @@
 
 import Playground from './Playground';
+import Engine from './Engine';
+import {IPlayground, IEngine} from './types/interfaces';
 import settings from './settings.json';
 
 
 window.onload = function() {
 
-    const $start = document.querySelector('#' + settings["start"])
-    const $pause = document.querySelector('#' + settings["pause"])
-    const $left = document.querySelector('#' + settings["left"])
-    const $right = document.querySelector('#' + settings["right"])
-    const $rotate = document.querySelector('#' + settings["rotate"])
-    const $speed = document.querySelector('#' + settings["speed"])
-    const $score = document.querySelector('#' + settings["score"])
+    const $start = document.querySelector('#' + settings["startId"])
+    const $pause = document.querySelector('#' + settings["pauseId"])
+    const $left = document.querySelector('#' + settings["leftId"])
+    const $right = document.querySelector('#' + settings["rightId"])
+    const $rotate = document.querySelector('#' + settings["rotateId"])
+    const $speed = document.querySelector('#' + settings["speedId"])
+    const $score = document.querySelector('#' + settings["scoreId"])
 
-    const playground  = new Playground(settings["tetris"], '#666', '#FF0000');
-    playground.drawGrid(301, 476);
+    const playground: IPlayground  = new Playground(settings["tetrisId"], 301, 476, '#666', '#FF0000');
+    playground.drawGrid();
 
-    const preview  = new Playground(settings["preview"], '#666', '#FF0000');
-    preview.drawGrid(250, 100);
+    const preview: IPlayground  = new Playground(settings["previewId"], 250, 125, '#666', '#FF0000');
+    preview.drawGrid();
 
-    const matrix: number[][] = [
-      [0,0,0,0,0,0,1,0,0,0,0,0],
-      [0,0,0,0,0,0,1,0,0,0,0,0],
-      [0,0,0,0,0,1,1,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0,0,0,0,0],
-    ];
-
-    const matrixPreview: number[][] = [
-      [0,0,0,0,1,0,0,0,0,0],
-      [0,0,0,0,1,0,0,0,0,0],
-      [0,0,0,0,1,1,0,0,0,0],
-      [0,0,0,0,0,0,0,0,0,0],
-    ];
-    
+    const store: IEngine = new Engine(settings["figures"]);
 
     $start.addEventListener('click', () => {
-
-      alert("Start");
-
-      playground.draw(matrix);
-      preview.draw(matrixPreview);
+      store.startGame();
+      playground.draw(store.playMatrix);
+      preview.draw(store.previewMatrix);
     })
 
 

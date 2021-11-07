@@ -1,11 +1,21 @@
 import {IPlayground} from './types/interfaces';
 
 class Playground implements IPlayground {
-  canvas: any;
-  ctx: any;
+  canvas: HTMLCanvasElement;
+  ctx: CanvasRenderingContext2D;
+  width: number;
+  height: number;
 
-  constructor(elemId: string, strokeColor: string, fillColor: string) {
-    this.canvas = document.getElementById(elemId);
+  constructor(
+    elemId: string,
+    w: number,
+    h: number,
+    strokeColor: string,
+    fillColor: string
+  ) {
+    this.width = w;
+    this.height = h;
+    this.canvas = document.getElementById(elemId) as HTMLCanvasElement;
     if (this.canvas.getContext) {
       this.ctx = this.canvas.getContext('2d');
       this.ctx.strokeStyle = strokeColor;
@@ -14,6 +24,8 @@ class Playground implements IPlayground {
   }
 
   draw(matrix: number[][]): void {
+    this.ctx.clearRect(0, 0, this.width, this.height);
+    this.drawGrid();
     this.ctx.beginPath();
 
     for (let i = 0; i < matrix.length; i++) {
@@ -27,17 +39,17 @@ class Playground implements IPlayground {
     this.ctx.closePath();
   }
 
-  drawGrid(w: number, h: number):void {
+  drawGrid():void {
     this.ctx.beginPath();
 
-    for (let i = 0.5; i < w; i+=25) {
+    for (let i = 0.5; i < this.width; i+=25) {
       this.ctx.moveTo(i, 0.5);
-      this.ctx.lineTo(i, h);
+      this.ctx.lineTo(i, this.height);
     }
 
-    for (let j = 0.5; j < h; j+=25) {
+    for (let j = 0.5; j < this.height; j+=25) {
       this.ctx.moveTo(0.5, j);
-      this.ctx.lineTo(w, j);
+      this.ctx.lineTo(this.width, j);
     }
 
     this.ctx.stroke();
