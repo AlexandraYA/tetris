@@ -1,4 +1,6 @@
 {
+  "tetris": "tetris",
+  "preview": "preview",
   "start": "btnStart",
   "pause": "btnStart",
   "left": "btnStart",

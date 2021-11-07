@@ -36,7 +36,7 @@ html, body, .container, .playground {
     position: relative;
     margin-left: 40px;
     margin-bottom: 40px;
-    width: 220px;
+    width: 250px;
     height: 100px;
     border: 2px solid black;
     background: #ffffff;
@@ -45,7 +45,7 @@ html, body, .container, .playground {
 .controls-arrows,
 .controls {
     position: relative;
-    width: 220px;
+    width: 250px;
     height: auto;
     margin-left: 40px;
     display: flex;
@@ -70,7 +70,7 @@ html, body, .container, .playground {
 
 .btn {
     font-size: 2em;
-    width: 80px;
+    width: 100px;
     height: 40px;
     min-height: 40px;
     background-color: #c2c2c2;
@@ -130,7 +130,7 @@ html, body, .container, .playground {
     position: relative;
     margin-left: 40px;
     margin-bottom: 40px;
-    width: 220px;
+    width: 250px;
     height: auto;
     text-align: center;
     font-size: 1.5rem;
