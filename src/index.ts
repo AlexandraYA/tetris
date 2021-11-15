@@ -16,17 +16,14 @@ window.onload = function() {
     const $score = document.querySelector('#' + settings["scoreId"])
 
     const playground: IPlayground  = new Playground(settings["tetrisId"], 301, 476, '#666', '#FF0000');
-    playground.drawGrid();
-
     const preview: IPlayground  = new Playground(settings["previewId"], 250, 125, '#666', '#FF0000');
-    preview.drawGrid();
+    const store: IEngine = new Engine(settings["figures"], playground, preview);
 
-    const store: IEngine = new Engine(settings["figures"]);
+    store.init();
 
     $start.addEventListener('click', () => {
       store.startGame();
-      playground.draw(store.playMatrix);
-      preview.draw(store.previewMatrix);
+      
     })
 
 
